@@ -13,7 +13,7 @@ class AddSite extends Route {
 
   async handle(req: Express.Request, res: Express.Response) {
     const site = await Site.findOne({ url: req.body.url });
-    if (site) return res.status(200).json({ error: false, message: 'Already Created', site });
+    if (site) return res.status(200).json({ error: true, message: 'Site already exists', site });
 
     try {
       const { url, interval } = req.body;

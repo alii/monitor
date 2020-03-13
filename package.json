@@ -7,7 +7,6 @@
     "watch:build": "npx webpack -w",
     "watch:server": "nodemon dist/server.js",
     "dev": "npm-run-all --parallel watch:*",
-    "build": "webpack ./src/client --config webpack.prod.js",
     "start": "node dist/server.js",
     "format": "prettier --write \"**/*.{js,ts,scss,html}\""
   },
@@ -41,11 +40,13 @@
     "use-http": "^0.3.7",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11",
-    "webpack-merge": "^4.2.2",
     "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
     "@types/mongoose": "^5.7.6",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "eslint-plugin-react": "^7.19.0",
     "nodemon": "^2.0.2",
     "npm-run-all": "^4.1.5"
   }

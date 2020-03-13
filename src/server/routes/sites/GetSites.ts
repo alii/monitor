@@ -1,5 +1,5 @@
 import { Route, RouteTypes } from '../util';
-import Express from 'express';
+import express from 'express';
 
 import Site from '../../models/Site';
 
@@ -8,9 +8,12 @@ class GetSites extends Route {
     super(RouteTypes.GET, '/api/getSites');
   }
 
-  async handle(req: Express.Request, res: Express.Response) {
+  async handle(req: express.Request, res: express.Response) {
     const sites = await Site.find();
-    res.status(203).json({ error: false, sites });
+
+    if (sites.length === 0) return res.status(200).json({ error: true, message: 'No sites', sites });
+
+    res.json({ error: false, sites });
   }
 }
 

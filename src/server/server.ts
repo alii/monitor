@@ -18,7 +18,7 @@ mongoose.connect('mongodb://localhost:27017/shopify-monitor', {
   useNewUrlParser: true,
 });
 
-routes.forEach(route => app[route.method](route.path, route.internalHandle));
+for (const route of routes) app[route.method](route.path, route.internalHandle);
 
 app.use(express.static('public'));
 
