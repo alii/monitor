@@ -1,8 +1,4 @@
 node_modules/
-<<<<<<< HEAD
 dist/
 public/js/app.js
 .idea/
-=======
-.env
->>>>>>> 2706e45f305def77440a15597ee2eca2ba80f284
