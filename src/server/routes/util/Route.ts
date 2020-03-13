@@ -17,7 +17,7 @@ class Route {
    * @param req The request object
    * @param res The reponse object
    */
-  async internalHandle(req: Express.Request, res: Express.Response) {
+  async internalHandle(req: Express.Request, res: Express.Response): Promise<void> {
     this.handle(req, res);
   }
 
@@ -26,7 +26,9 @@ class Route {
    * @param req The request object
    * @param res The response object
    */
-  async handle(req: Express.Request, res: Express.Response) {}
+  async handle(req: Express.Request, res: Express.Response): Promise<any> {
+    res.json({ error: true, message: 'This route was not overwritten!' });
+  }
 }
 
 export default Route;

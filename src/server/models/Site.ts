@@ -1,9 +1,13 @@
 import * as mongoose from 'mongoose';
-import Product from './Product';
+import { ProductSchema as Product } from './Product';
 
-const Site = new mongoose.Schema({
+const SiteSchema = new mongoose.Schema({
   name: String,
-  product: Product,
+  url: String,
+  internal: Number,
+  products: [Product],
 });
+
+const Site = mongoose.model('Site', SiteSchema);
 
 export default Site;
