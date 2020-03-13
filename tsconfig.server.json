@@ -1,21 +1,13 @@
 {
-    "compilerOptions": {
-      "outDir": "./dist/",
-      "noImplicitAny": true,
-      "module": "commonjs",
-      "target": "es5",
-      "allowSyntheticDefaultImports": true,
-      "lib": [
-          "es2017"
-      ],
-      "types": [
-          "node", "express"
-      ]
-    },
-    "include": [
-        "src/server/**/*"
-    ],
-    "exclude": [
-        "node_modules"
-    ]
-  }
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es5",
+    "allowSyntheticDefaultImports": true,
+    "lib": ["es2017"],
+    "types": ["node", "express"]
+  },
+  "include": ["src/server/**/*"],
+  "exclude": ["node_modules"]
+}

@@ -7,18 +7,23 @@
     "watch:build": "npx webpack -w",
     "watch:server": "nodemon dist/server.js",
     "dev": "npm-run-all --parallel watch:*",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "format": "prettier --write \"**/*.{js,ts,scss,html}\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/express": "^4.17.2",
+    "@types/express": "^4.17.3",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
+    "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
     "css-loader": "^1.0.1",
     "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "helmet": "^3.21.3",
+    "mongoose": "^5.9.4",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -26,11 +31,14 @@
     "style-loader": "^0.23.1",
     "ts-loader": "^5.4.5",
     "typescript": "^3.7.5",
+    "use-fetch": "^0.0.7",
+    "use-http": "^0.3.7",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
+    "@types/mongoose": "^5.7.6",
     "nodemon": "^1.19.4",
     "npm-run-all": "^4.1.3"
   }
