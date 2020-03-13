@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "barebones-react-typescript-express",
   "version": "1.0.0",
   "description": "",
@@ -48,5 +49,42 @@
     "@types/mongoose": "^5.7.6",
     "nodemon": "^2.0.2",
     "npm-run-all": "^4.1.5"
+=======
+  "name": "shopify-monitor",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build": "npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aabbccsmith/shopify-monitor.git"
+  },
+  "author": "Alistair Smith <alistairsmith01@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aabbccsmith/shopify-monitor/issues"
+  },
+  "homepage": "https://github.com/aabbccsmith/shopify-monitor#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "nodemon": "^1.17.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "helmet": "^3.21.3"
+>>>>>>> 2706e45f305def77440a15597ee2eca2ba80f284
   }
 }
