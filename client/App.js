@@ -5,8 +5,7 @@ import Sidebar from './components/Sidebar';
 import { Home, Products, Config } from './pages';
 
 import { ThemeProvider } from 'styled-components';
-
-const theme = require('sass-extract-loader?{"plugins": ["sass-extract-js"]}!./styles/app.scss');
+import theme from './styles/theme';
 
 const App = () => {
   return (

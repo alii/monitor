@@ -1,11 +1,19 @@
 import React from 'react';
+import FormGroup from '../components/FormGroup';
 
-const Home = () => {
+/**
+ * Configuration Page
+ */
+const Config = () => {
+  const update = () => console.log('updated');
+
   return (
     <div>
-      <input type="text" />
+      <FormGroup update={update}>
+        <input type="text" />
+      </FormGroup>
     </div>
   );
 };
 
-export default Home;
+export default Config;
