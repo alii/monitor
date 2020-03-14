@@ -10,7 +10,7 @@ class GetConfig extends Route {
     const config = await Config.findOne();
     if (!config) return res.status(404).json({ error: true, message: 'No config found' });
 
-    res.json({ error: false, message: 'Successfully got Config', config });
+    res.json({ error: false, message: 'Successfully got Config', data: config });
   }
 }
 
