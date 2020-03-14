@@ -9,6 +9,7 @@ import bodyParser from 'body-parser';
 
 import mongoose from 'mongoose';
 import routes from './routes';
+import { log } from './functions/Logger';
 
 const app = express();
 
@@ -43,6 +44,10 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
 });
 
-app.listen(process.env.PRODUCTION_PORT || 3000, () =>
-  console.log(`Server listening on port: ${process.env.PRODUCTION_PORT || 3000}`),
-);
+try {
+  app.listen(process.env.PRODUCTION_PORT || 3000, () => {
+    log.info(`Server listening on port: ${process.env.PRODUCTION_PORT || 3000}`);
+  });
+} catch (_) {
+  log.error('Error. Could not start server. Check that there are no other applications running on port 3000.');
+}

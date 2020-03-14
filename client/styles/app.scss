@@ -23,6 +23,7 @@ body {
 }
 
 .app {
+  box-sizing: border-box;
   flex: 1;
   padding: 20px;
 }
