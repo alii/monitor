@@ -56,3 +56,9 @@ Follow our basic guidelines below to make the process quick and easy
 - ESNext support globally
 - Husky and prettier for pre-commit hooks to ensure a clean code style
 - ESLint
+
+### What happens during development?
+
+In development, two servers will run. You have the webpack server running the React hot reload on :3001, and the express API server running on :3000
+
+During development, the express server on 3000 will only accept requests to `/api/`, whereas in production, it will accept all requests.
