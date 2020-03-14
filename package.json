@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "start": "node dist/index.js",
-    "rebart": "yarn build&&yarn start",
+    "bart": "yarn build&&yarn start",
     "build-react": "webpack --mode production",
     "watch-server": "babel-watch server/index.js",
     "build-server": "babel server --out-dir dist",
@@ -21,6 +21,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-brands-svg-icons": "^5.12.1",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.9",
     "@types/cheerio": "^0.22.16",
     "@types/express": "^4.17.3",
     "@types/helmet": "^0.0.45",

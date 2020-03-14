@@ -37,6 +37,8 @@ yarn start
 
 and this will start based off of your files made when you ran `yarn build`. If you edit some code, you will have to run `yarn build` again before you can run `yarn start`.
 
+If you don't want to have to run `yarn build` before starting, there is a script called `bart` which will **b**uild and st**art** in the one command. Useful for testing. This can be ran by performing `yarn bart`.
+
 ### Contributing
 
 This project was intended to be maintained by the Sneaker community, so, naturally, we would LOVE you to contribute!
