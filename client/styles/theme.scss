@@ -1,0 +1,16 @@
+// Any variables defined here will be globally
+// available in styled-components beacuse of
+// a magic ContextProvider
+// // // // // // // // // // // // // // // // //
+// This means that if you want to add
+// a variable in `styled-components`
+// and you need that variable to reflect
+// everywhere in the application, add that
+// variable here, and use that variable
+// throughout the application with
+// styled-components
+
+$bg: white;
+$color: #444444;
+$transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+$accent: #74c8f2;
