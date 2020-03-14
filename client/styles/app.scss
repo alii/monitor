@@ -1,10 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+// Don't edit this file! In fact, don't edit any file ending in .scss
+// All styling should be done with `styled-components`!
 
-// Any variables defined here will be available in all styled-components beacuse of a context provider!!
-$bg: white;
-$color: #444444;
-$transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-$accent: #74c8f2;
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import './theme.scss';
 
 body {
   font-family: 'Roboto', sans-serif;
