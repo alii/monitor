@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
+
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './client/index.html',
   filename: './index.html',

@@ -16,16 +16,12 @@ class GetProducts extends Route {
       products: sites
         .map(site => {
           return [
-            // @ts-ignore
             ...site.products.map(product => {
               const { name, variants } = product;
               return { siteID: site._id, name, variants };
             }),
-
-            // @ts-ignore
           ].flat(Infinity);
         })
-        // @ts-ignore
         .flat(Infinity),
     };
 
