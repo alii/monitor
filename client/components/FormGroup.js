@@ -17,6 +17,7 @@ const Container = styled.div`
 `;
 
 const FormGroup = props => {
+  // eslint-disable-next-line react/prop-types
   return <Container>{props.children}</Container>;
 };
 
