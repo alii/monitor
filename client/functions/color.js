@@ -57,3 +57,23 @@ export const rgbToHex = rgb => {
  * @param {number} amount The amount to shade by
  */
 export const themedShadeColor = (rgb, amount) => shadeColor(rgbToHex(rgb), amount);
+
+/**
+ * Calculate brightness value by hex code
+ * @param {string} color The color
+ * @returns {number} The brightness value (dark) 0 ... 255 (light)
+ */
+export const brightnessByColor = color => {
+  const hasFullSpec = color.length == 7;
+  const m = color.substr(1).match(hasFullSpec ? /(\S{2})/g : /(\S{1})/g);
+
+  if (m) {
+    const r = parseInt(m[0] + (hasFullSpec ? '' : m[0]), 16),
+      g = parseInt(m[1] + (hasFullSpec ? '' : m[1]), 16),
+      b = parseInt(m[2] + (hasFullSpec ? '' : m[2]), 16);
+
+    return (r * 299 + g * 587 + b * 114) / 1000;
+  }
+
+  return null;
+};

@@ -73,7 +73,7 @@ In production, :3001 will not run, as it is a dev server only. The React fronten
 
 ### Credits
 
-Alistair Smith - Lead developer and maintainer ([aabbccsmith.dev](https://aabbccsmith.dev)
+Alistair Smith - Lead developer and maintainer ([aabbccsmith.dev](https://aabbccsmith.dev))
 
 ### Thanks
 
