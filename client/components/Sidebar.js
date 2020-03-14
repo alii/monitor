@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Button from './sidebar/SidebarButton';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const SidebarStyled = styled.div`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -30,7 +31,9 @@ const Sidebar = () => {
     <SidebarStyled>
       <Top>
         <h2>Shopify Monitor</h2>
-        <span>By Alistair Smith</span>
+        <span>
+          <FontAwesomeIcon icon={['fab', 'github']} />
+        </span>
       </Top>
       <Button to={'/'} text="Home" />
       <Button to={'/products'} text="Products" />
