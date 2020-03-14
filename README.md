@@ -54,3 +54,5 @@ Follow our basic guidelines below to make the process quick and easy
 - Hot reload on the client AND server in development
 - Webpack bundling + react for frontend
 - ESNext support globally
+- Husky and prettier for pre-commit hooks to ensure a clean code style
+- ESLint

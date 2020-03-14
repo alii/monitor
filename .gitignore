@@ -4,3 +4,4 @@ public/js/app.js
 .idea/
 .npm
 .DS_Store
+yarn-error.log
