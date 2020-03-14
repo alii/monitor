@@ -10,7 +10,7 @@ module.exports = {
   entry: './client/index.js',
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name]-rct.js',
+    filename: '[name].js',
   },
   plugins: [htmlPlugin],
   module: {
@@ -32,5 +32,16 @@ module.exports = {
         options: { name: '/static/[name].[ext]' },
       },
     ],
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 3001,
+    hot: true,
+    open: 'Google Chrome',
+    historyApiFallback: true,
+    proxy: {
+      '/api': 'http://localhost:3000',
+    },
   },
 };

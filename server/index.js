@@ -21,13 +21,14 @@ mongoose.connect('mongodb://localhost:27017/shopify-monitor', {
 
 for (const route of routes) app[route.method](route.path, route.internalHandle);
 
-const PUBLIC_PATH = path.join(__dirname, '..', 'public', 'index.html');
-console.log(PUBLIC_PATH);
-
-app.use(express.static('public'));
+app.use(express.static('dist'));
 
 app.get('*', (req, res) => {
-  res.sendFile(PUBLIC_PATH);
+  if (process.env.NODE_ENV === 'development') {
+    return res.redirect('http://localhost:3001');
+  }
+
+  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
 });
 
 app.listen(process.env.PORT || 3000, () => console.log(`Server listening on port: ${process.env.port || 3000}`));
