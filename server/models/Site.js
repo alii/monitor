@@ -7,6 +7,12 @@ const SiteSchema = new mongoose.Schema({
   internal: Number,
   products: [Product],
   keywords: String,
+
+  // If present, override the Config discordWebhook
+  discordWebhook: {
+    id: String,
+    token: String,
+  },
 });
 
 const Site = mongoose.model('Site', SiteSchema);

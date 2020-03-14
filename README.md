@@ -25,6 +25,8 @@ yarn build
 
 You will only have to run these commands once.
 
+Next, you'll have to copy `.env-template` to a new file in the same folder and call it `.env`. You can now configure the application to your hearts content!
+
 ### Starting the monitor
 
 Just like installing, running is also super simple. All you have to do is
