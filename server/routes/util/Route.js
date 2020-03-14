@@ -1,5 +1,3 @@
-import Express from 'express';
-
 class Route {
   constructor(method = 'get', path) {
     this.method = method;

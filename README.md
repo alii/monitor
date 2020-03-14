@@ -59,13 +59,13 @@ Follow our basic guidelines below to make the process quick and easy
 
 ### What happens during development?
 
-In development, two servers will run. You have the webpack server running the React hot reload on :3001, and the express API server running on :3000
+In development, two servers will run. You have the webpack-dev-server running the **development** React app (with hot reload) on :3001, and the express API server running on :3000
 
 During development, the express server on 3000 will only accept requests to `/api/`, whereas in production, it will accept all requests.
 
 ### What about in production?
 
-In production, :3001 will not run, as it is a dev server only. The React frontend will be built and minified (available under `dist/`) and the express server will allow all traffic routing it to the compiled React app, or to the API endpoint.
+In production, :3001 will not run, as it is a dev server only. The React frontend will be built and **minified** (available under `dist/`) and the express server will allow all traffic routing it to the compiled React app, or to the API endpoint.
 
 ### Credits
 

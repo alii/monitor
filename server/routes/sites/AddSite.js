@@ -1,5 +1,4 @@
 import { Route, RouteTypes } from '../util';
-import Express from 'express';
 import fetch from 'node-fetch';
 
 import cheerio from 'cheerio';
