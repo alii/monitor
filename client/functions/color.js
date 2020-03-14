@@ -50,3 +50,10 @@ export const rgbToHex = rgb => {
         ('0' + parseInt(rgb[3], 10).toString(16)).slice(-2)
     : '';
 };
+
+/**
+ * Lightens or darkens a provided rgb value. Returns a hex
+ * @param {string} rgb The rgb  string. E.g. `rgb(0,0,0)`;
+ * @param {number} amount The amount to shade by
+ */
+export const themedShadeColor = (rgb, amount) => shadeColor(rgbToHex(rgb), amount);

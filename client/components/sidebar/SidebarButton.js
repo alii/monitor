@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink as Link } from 'react-router-dom';
 
 import styled from 'styled-components';
-import { shadeColor, rgbToHex } from '../../functions/color';
+import { themedShadeColor } from '../../functions/color';
 
 const StyledLink = styled(Link)`
   padding: 15px 20px;
@@ -35,7 +35,7 @@ const StyledLink = styled(Link)`
 
       height: 100%;
       width: 100%;
-      background: ${props => shadeColor(rgbToHex(props.theme.bg), -20)};
+      background: ${props => themedShadeColor(props.theme.bg, -20)};
 
       border-top-right-radius: 2em;
       border-bottom-right-radius: 2em;
