@@ -13,7 +13,7 @@ class GetProducts extends Route {
     const data = {
       error: false,
       message: 'Successfully found all products',
-      products: sites
+      data: sites
         .map(site => {
           return [
             ...site.products.map(product => {

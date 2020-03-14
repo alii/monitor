@@ -37,9 +37,10 @@ const Sidebar = () => {
           <FontAwesomeIcon icon={faGithub} /> A Community project
         </a>
       </Top>
-      <Button to={'/'} text="Home" />
-      <Button to={'/products'} text="Products" />
-      <Button to={'/config'} text="Config" />
+      <Button to="/" text="Home" />
+      <Button to="/products" text="Products" />
+      <Button to="/config" text="Config" />
+      <Button to="/sites" text="Sites" />
     </SidebarStyled>
   );
 };

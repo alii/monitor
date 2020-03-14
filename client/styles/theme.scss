@@ -10,7 +10,7 @@
 // throughout the application with
 // styled-components
 
-$bg: #121212;
-$color: #5c5c5c;
+$bg: white; // To set to dark theme, change this to #121212
+$color: #444444; // To set to dark theme, change this to #535353
 $transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 $accent: #74c8f2;

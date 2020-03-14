@@ -33,7 +33,7 @@ class AddSite extends Route {
       res.status(201).json({ error: false, message: 'Created', site });
     } catch (_) {
       console.warn(_);
-      res.status(400).json({ error: true, message: 'Something went wrong', status: 400 });
+      res.status(400).json({ error: true, message: 'Something went wrong' });
     }
   }
 }
