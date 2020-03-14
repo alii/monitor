@@ -2,3 +2,5 @@ node_modules/
 dist/
 public/js/app.js
 .idea/
+.npm
+.DS_Store

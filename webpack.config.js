@@ -1,62 +1,35 @@
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const nodeExternals = require('webpack-node-externals');
+const htmlPlugin = new HtmlWebPackPlugin({
+  template: './client/index.html',
+  filename: './index.html',
+});
 
-const serverConfig = {
-  mode: process.env.NODE_ENV || 'development',
-  entry: './src/server/server.ts',
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/,
-        options: {
-          configFile: 'tsconfig.server.json',
-        },
-      },
-    ],
-  },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-  },
+module.exports = {
+  entry: './client/index.js',
   output: {
-    filename: 'server.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist'),
+    filename: '[name]-rct.js',
   },
-  target: 'node',
-  node: {
-    __dirname: false,
-  },
-  externals: [nodeExternals()],
-};
-
-const clientConfig = {
-  mode: process.env.NODE_ENV || 'development',
-  entry: './src/client/index.tsx',
-  devtool: 'inline-source-map',
+  plugins: [htmlPlugin],
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        options: {
-          configFile: 'tsconfig.client.json',
+        use: {
+          loader: 'babel-loader',
         },
       },
       {
-        test: /\.scss$/,
+        test: /\.s?css$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        loader: 'file-loader',
+        options: { name: '/static/[name].[ext]' },
+      },
     ],
   },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.css', '.styles'],
-  },
-  output: {
-    filename: 'app.js',
-    path: path.resolve(__dirname, 'public/js'),
-  },
 };
-
-module.exports = [serverConfig, clientConfig];
