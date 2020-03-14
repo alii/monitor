@@ -10,7 +10,25 @@
 // throughout the application with
 // styled-components
 
-$bg: white; // To set to dark theme, change this to #121212
-$color: #444444; // To set to dark theme, change this to #535353
+$dark-mode: true; // Change this to `true` to enable dark mode
+
+@function bool($value: false) {
+  @if $value == false or $value == '' or $value == 'false' or $value == 'false' or $value == 0 {
+    @return false;
+  }
+
+  @return true;
+}
+
+$bg: #121212;
+$color: #535353;
+$muted: #333333;
+
+@if bool($dark-mode) == false {
+  $bg: white;
+  $color: #444444;
+  $muted: #919191;
+}
+
 $transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 $accent: #74c8f2;

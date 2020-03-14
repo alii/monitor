@@ -5,11 +5,12 @@ import FormGroup from '../components/FormGroup';
  * Configuration Page
  */
 const Config = () => {
-  const update = () => console.log('updated');
-
   return (
     <div>
-      <FormGroup update={update}>
+      <FormGroup label="Default Timeout">
+        <input type="text" />
+      </FormGroup>
+      <FormGroup label="Default Timeout">
         <input type="text" />
       </FormGroup>
     </div>
