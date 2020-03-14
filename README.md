@@ -41,7 +41,7 @@ This project was intended to be maintained by the Sneaker community, so, natural
 
 Follow our basic guidelines below to make the process quick and easy
 
-#### Branch Structure
+#### Structure
 
 1. Firstly, fork the repo (or make sure you are on `master` and you have ran `git pull` to ensure you are up to date).
 2. Edit your code
