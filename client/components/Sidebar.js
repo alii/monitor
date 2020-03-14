@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Button from './sidebar/SidebarButton';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const SidebarStyled = styled.div`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -20,7 +22,7 @@ const Top = styled.div`
   display: flex;
   flex-direction: column;
 
-  span {
+  a {
     font-size: 90%;
     margin-top: 5px;
   }
@@ -31,9 +33,9 @@ const Sidebar = () => {
     <SidebarStyled>
       <Top>
         <h2>Shopify Monitor</h2>
-        <span>
-          <FontAwesomeIcon icon={['fab', 'github']} />
-        </span>
+        <a href="https://github.com/aabbccsmith/shopify-monitor" target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faGithub} /> A Community project
+        </a>
       </Top>
       <Button to={'/'} text="Home" />
       <Button to={'/products'} text="Products" />
