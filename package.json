@@ -5,12 +5,13 @@
   "main": "dist/server.js",
   "scripts": {
     "start": "node dist/index.js",
+    "rebart": "yarn build&&yarn start",
     "build-react": "webpack --mode production",
+    "watch-server": "babel-watch server/index.js",
     "build-server": "babel server --out-dir dist",
     "build": "yarn build-react&&yarn build-server",
-    "format": "prettier --write \"**/*.{js,ts,scss,html}\"",
-    "watch-server": "babel-watch server/index.js",
-    "start-dev": "yarn webpack-dev-server&cross-env NODE_ENV=development yarn watch-server"
+    "start-dev": "yarn webpack-dev-server&cross-env NODE_ENV=development yarn watch-server",
+    "format": "prettier --write \"**/*.{js,ts,scss,html}\""
   },
   "keywords": [],
   "author": "",
