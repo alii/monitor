@@ -12,6 +12,7 @@ class GetSites extends Route {
 
     if (sites.length === 0) return res.status(200).json({ error: true, message: 'No sites', sites });
 
+    // console.log('Found sites');
     res.json({ error: false, sites });
   }
 }

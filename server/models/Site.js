@@ -6,6 +6,7 @@ const SiteSchema = new mongoose.Schema({
   url: String,
   internal: Number,
   products: [Product],
+  keywords: String,
 });
 
 const Site = mongoose.model('Site', SiteSchema);
