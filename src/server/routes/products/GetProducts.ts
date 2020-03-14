@@ -23,12 +23,10 @@ class GetProducts extends Route {
           return [
             // @ts-ignore
             ...site.products.map(product => {
-              // @ts-ignore
-              // @ts-ignore
               const { name, variants } = product;
-              // @ts-ignore
               return { siteID: site._id, name, variants };
             }),
+
             // @ts-ignore
           ].flat(Infinity);
         })
