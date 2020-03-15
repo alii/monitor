@@ -48,7 +48,8 @@
     "react-router-dom": "^5.1.2",
     "styled-components": "^5.0.1",
     "use-fetch": "^0.0.7",
-    "use-http": "^0.3.7"
+    "use-http": "^0.3.7",
+    "yaml": "^1.8.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
