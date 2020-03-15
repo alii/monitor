@@ -2,10 +2,10 @@ import Site from '../models/Site';
 
 export class BasicSite {
   constructor(mongoID) {
-    Site.findOne({ _id: mongoID });
+    this.site = Site.findOne({ _id: mongoID });
   }
 
-  async getStock() {
+  async getProducts() {
     // TODO: Add this
   }
 }
