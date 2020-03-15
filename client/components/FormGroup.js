@@ -8,7 +8,9 @@ const Container = styled.div`
   float: left;
   min-width: 400px;
 
-  padding: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+
   box-sizing: border-box;
 
   input {

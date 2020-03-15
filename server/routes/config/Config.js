@@ -1,5 +1,5 @@
 import { Route, RouteTypes } from '../util';
-import { Config } from '../../models/Config';
+import { getConfig } from '../../functions/Config';
 
 class GetConfig extends Route {
   constructor() {
@@ -7,7 +7,7 @@ class GetConfig extends Route {
   }
 
   async handle(req, res) {
-    const config = await Config.findOne();
+    const config = await getConfig();
     if (!config) return res.status(404).json({ error: true, message: 'No config found' });
 
     res.json({ error: false, message: 'Successfully got Config', data: config });

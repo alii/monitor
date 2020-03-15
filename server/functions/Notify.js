@@ -1,4 +1,3 @@
-import { getConfig } from './Config';
 import { WebhookClient, MessageEmbed } from 'discord.js';
 
 /**
@@ -30,9 +29,7 @@ export class RestockEmbed extends MessageEmbed {
  * @param {RestockData} data The data of the restock
  */
 export const notify = async data => {
-  const config = await getConfig();
-
-  const hook = new WebhookClient(config.discordWebhook.id, config.discordWebhook.token);
+  const hook = new WebhookClient(data.site.discordWebhook.id, data.site.discordWebhook.token);
   hook.send(new RestockEmbed(data));
 };
 

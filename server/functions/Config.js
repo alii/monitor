@@ -1,20 +1,22 @@
-import Config from '../models/Config';
+import { writeFileSync, readFileSync, existsSync } from 'fs';
+import path from 'path';
+import YAML from 'yaml';
 
-const updateConfig = async (key, value) => {
-  const config = await Config.findOne();
-  if (!config) return Config.create({});
-
-  config[key] = value;
-
-  return config.save();
-};
+const CONFIG_PATH = path.join(__dirname, '..', '..', 'config.yml');
 
 const getConfig = async () => {
-  const config = await Config.findOne();
-  if (!config) return Config.create({});
+  const config = readFileSync(CONFIG_PATH).toString();
 
-  return config;
+  return YAML.parse(config);
 };
 
+const updateConfig = async (key, value) => {
+  const config = await getConfig();
+  const newConfig = { ...config, [key]: value };
+
+  writeFileSync(CONFIG_PATH, YAML.stringify(newConfig));
+};
+
+if (!existsSync(CONFIG_PATH)) writeFileSync(CONFIG_PATH, '');
+
 export { updateConfig, getConfig };
-export default updateConfig;
