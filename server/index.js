@@ -15,6 +15,7 @@ import socket from 'socket.io';
 import routes from './routes';
 import ioLogger from './functions/Logger';
 import Scheduler from './Scheduler';
+import Logger from './functions/Logger';
 
 const app = express();
 const server = http.Server(app);
@@ -71,3 +72,7 @@ try {
 } catch (_) {
   log.error('Error. Could not start server. Check that there are no other applications running on port 3000.');
 }
+
+[`exit`, `SIGINT`, `SIGUSR1`, `SIGUSR2`, `uncaughtException`, `SIGTERM`].forEach(eventType => {
+  process.on(eventType, () => log.info('Server shut down!'));
+});
