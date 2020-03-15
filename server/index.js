@@ -50,8 +50,7 @@ app.get('*', (req, res) => {
   if (process.env.NODE_ENV === 'development') {
     return res.status(404).json({
       error: true,
-      message:
-        'You found a hidden URL! This application is currently running in development mode, so the express server will only accept requests to the API endpoints.',
+      message: 'This URL is not enabled in development.',
 
       reason:
         "What's this? This page is here because you ran the application in development mode, but this server only accepts API requests.",
