@@ -32,3 +32,6 @@ $muted: #333333;
 
 $transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 $accent: #74c8f2;
+
+// doN'T EDIT Below here!
+$light: if(lightness($bg) > 40, darken($bg, 5%), lighten($bgm 5%));

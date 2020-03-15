@@ -26,6 +26,7 @@ body {
   box-sizing: border-box;
   flex: 1;
   padding: 20px;
+  padding-left: 30px;
 }
 
 .flex-fill {
@@ -62,4 +63,8 @@ body {
       flex: 1;
     }
   }
+}
+
+.toast {
+  font-family: 'Roboto', sans-serif;
 }

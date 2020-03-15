@@ -4,14 +4,23 @@ dotenv.config();
 import express from 'express';
 import path from 'path';
 
+// Middlewars
 import helmet from 'helmet';
 import bodyParser from 'body-parser';
-
 import mongoose from 'mongoose';
+
+import http from 'http';
+import socket from 'socket.io';
+
 import routes from './routes';
-import { log } from './functions/Logger';
+import ioLogger from './functions/Logger';
+import Scheduler from './Scheduler';
 
 const app = express();
+const server = http.Server(app);
+const io = socket(server);
+
+const log = ioLogger(io);
 
 app.use(helmet());
 
@@ -21,6 +30,16 @@ app.use(bodyParser.json());
 mongoose.connect(process.env.MONGO_URI, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
+});
+
+const scheduler = new Scheduler();
+scheduler.on('need monitoring', site => {
+  log.info(`${site.name}`, 'Sending to clients');
+
+  io.sockets.emit('message', {
+    message: `Checking for restocks on ${site.name}`,
+    type: 'info',
+  });
 });
 
 for (const route of routes) app[route.method](route.path, route.internalHandle);
@@ -44,10 +63,11 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
 });
 
+io.on('connection', () => log.info('Socket Connection'));
+
 try {
-  app.listen(process.env.PRODUCTION_PORT || 3000, () => {
-    log.info(`Server listening on port: ${process.env.PRODUCTION_PORT || 3000}`);
-  });
+  server.listen(process.env.PRODUCTION_PORT || 3000);
+  log.info(`Server listening on port: ${process.env.PRODUCTION_PORT || 3000}`);
 } catch (_) {
   log.error('Error. Could not start server. Check that there are no other applications running on port 3000.');
 }

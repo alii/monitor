@@ -41,6 +41,7 @@ const Sidebar = () => {
       <Button to="/products" text="Products" />
       <Button to="/config" text="Config" />
       <Button to="/sites" text="Sites" />
+      <Button to="/logs" text="Logs" />
     </SidebarStyled>
   );
 };
