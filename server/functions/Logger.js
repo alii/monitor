@@ -31,5 +31,10 @@ export default io => {
       logger.success(...args);
       io?.sockets.emit('log', 'success', ...args);
     },
+
+    warn: (...args) => {
+      logger.success(...args);
+      io?.sockets.emit('log', 'warn', ...args);
+    },
   };
 };

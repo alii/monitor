@@ -18,9 +18,14 @@ import Scheduler from './Scheduler';
 
 const app = express();
 const server = http.Server(app);
-const io = socket(server);
 
+const io = socket(server);
 const log = ioLogger(io);
+
+io.on('connection', socket => {
+  log.info('Socket', 'Connected');
+  socket.on('disconnect', () => log.warn('Socket', 'Disconnected'));
+});
 
 app.use(helmet());
 
@@ -61,8 +66,6 @@ app.get('*', (req, res) => {
 
   res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
 });
-
-io.on('connection', () => log.info('Socket Connection'));
 
 try {
   server.listen(process.env.PRODUCTION_PORT || 3000);

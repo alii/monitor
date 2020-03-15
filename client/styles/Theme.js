@@ -45,6 +45,10 @@ theme.LOG_THEMES = {
     background: theme.success,
     color: shadeColor(rgbToHex(theme.success), -120),
   },
+  warn: {
+    background: theme.warn,
+    color: shadeColor(rgbToHex(theme.warn), -120),
+  },
 };
 
 export default theme;
