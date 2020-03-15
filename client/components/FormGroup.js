@@ -6,9 +6,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   float: left;
+  clear: right;
   min-width: 400px;
 
-  padding-right: 10px;
+  padding-right: 15px;
   padding-bottom: 20px;
 
   box-sizing: border-box;

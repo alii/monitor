@@ -15,12 +15,14 @@ const buttonStyles = `
     
   border-radius: 5px;
   padding: 10px 3px;
+  transition: ${theme.transition};
 
   &:active {
-    border: 1px solid ${theme.accent};
+    transform: scaleX(1.05);
   }
  
   &:focus {
+    // border: 1px solid ${theme.accent};
     background: ${isDarkTheme ? themedShadeColor(theme.bg, -10) : themedShadeColor(theme.bg, -5)};
   } 
 `;

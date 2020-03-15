@@ -20,23 +20,22 @@ $dark-mode: true; // Change this to `true` to enable dark mode
   @return true;
 }
 
+$accent: #74c8f2;
+$warn: #ffd07a;
+$debug: #c37aff;
+$error: #ff7a7a;
+$success: #a4ff7a;
+
 $bg: #121212;
 $color: #535353;
-$muted: #333333;
+$muted: $accent;
+$transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
 @if bool($dark-mode) == false {
   $bg: white;
   $color: #444444;
   $muted: #919191;
 }
-
-$transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-
-$accent: #74c8f2;
-$warn: #ffd07a;
-$debug: #c37aff;
-$error: #ff7a7a;
-$success: #a4ff7a;
 
 // doN'T EDIT Below here!
 $light: if(lightness($bg) > 40, darken($bg, 5%), lighten($bg, 5%));

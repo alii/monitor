@@ -19,6 +19,7 @@ const Log = styled.div`
 
   > span {
     flex: 1;
+    margin-right: 20px;
 
     &:first-child {
       max-width: 150px;
