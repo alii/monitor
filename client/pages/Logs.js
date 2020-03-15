@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import theme from '../styles/Theme';
 
 const Log = styled.div`
   display: flex;
-  padding: 10px 3px;
+  padding: 10px 5px;
   border-radius: 3px;
   margin-bottom: 3px;
 
-  color: black;
-  background: ${props => props.theme.light};
+  ${({ type, theme: { light } }) => {
+    const rowTheme = theme.LOG_THEMES[type] || { background: theme.light, color: theme.color };
+
+    return `
+      background: ${rowTheme.background || light};
+      color: ${rowTheme.color || theme.color};
+    `;
+  }}
 
   > span {
     flex: 1;
@@ -50,11 +57,17 @@ const LogTableContainer = styled.div`
   right: 0;
 `;
 
-const LogElement = ({ type, args }) => {
+const LogElement = ({ type, args: _args, date }) => {
+  const args = _args.filter(Boolean);
+  const firstArgument = args.shift();
+
   return (
-    <Log>
+    <Log type={type}>
       <span>{type.toUpperCase()}</span>
-      <span>{args.join('; ')}</span>
+      <span>{date}</span>
+      <span>
+        <b>{firstArgument}</b> {args.join(': ')}
+      </span>
     </Log>
   );
 };
@@ -74,7 +87,7 @@ export default class LogsContainer extends Component {
               <LogTableContainer>
                 {this.props.logs.length > 0 ? (
                   this.props.logs.map((log, i) => {
-                    return <LogElement key={i} type={log.type} args={log.arguments} />;
+                    return <LogElement key={i} type={log.type} args={log.arguments} date={log.date} />;
                   })
                 ) : (
                   <p>No logs</p>

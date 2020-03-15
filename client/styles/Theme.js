@@ -1,4 +1,4 @@
-import { brightnessByColor, themedShadeColor, rgbToHex } from '../functions/color';
+import { brightnessByColor, themedShadeColor, rgbToHex, shadeColor } from '../functions/color';
 
 const theme = require('sass-extract-loader?{"plugins": ["sass-extract-js"]}!./theme.scss');
 
@@ -27,5 +27,24 @@ const buttonStyles = `
 
 theme.input = buttonStyles;
 theme.button = buttonStyles;
+
+theme.LOG_THEMES = {
+  info: {
+    background: theme.accent,
+    color: shadeColor(rgbToHex(theme.accent), -120),
+  },
+  debug: {
+    background: theme.debug,
+    color: shadeColor(rgbToHex(theme.debug), -120),
+  },
+  error: {
+    background: theme.error,
+    color: shadeColor(rgbToHex(theme.error), -120),
+  },
+  success: {
+    background: theme.success,
+    color: shadeColor(rgbToHex(theme.success), -120),
+  },
+};
 
 export default theme;

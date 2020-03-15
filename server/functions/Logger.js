@@ -3,6 +3,14 @@ import log4js from 'log4js';
 const logger = log4js.getLogger('Backend');
 logger.level = 'debug';
 
+log4js.configure({
+  levels: {
+    SUCCESS: { value: 20001, colour: 'green' },
+  },
+  appenders: { out: { type: 'stdout' } },
+  categories: { default: { appenders: ['out'], level: 'SUCCESS' } },
+});
+
 export default io => {
   return {
     info: (...args) => {
@@ -17,6 +25,11 @@ export default io => {
     error: (...args) => {
       logger.error(...args);
       io?.sockets.emit('log', 'error', ...args);
+    },
+
+    success: (...args) => {
+      logger.success(...args);
+      io?.sockets.emit('log', 'success', ...args);
     },
   };
 };

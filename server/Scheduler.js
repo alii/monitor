@@ -3,13 +3,13 @@ import ioLogger from './functions/Logger';
 import Site from './models/Site';
 import EventEmitter from 'events';
 
-const log = ioLogger(null);
-
 const debug = process.env.NODE_ENV === 'development';
 
 class Scheduler extends EventEmitter {
-  constructor() {
+  constructor(io) {
     super();
+
+    this.log = ioLogger(io);
     this.loop = this.loop.bind(this);
     this.handleSite = this.handleSite.bind(this);
 
@@ -17,7 +17,7 @@ class Scheduler extends EventEmitter {
   }
 
   async loop() {
-    log.debug('Looped');
+    this.log.debug('Looped');
 
     const sites = await Site.find();
     sites.forEach(site => this.handleSite(site));
