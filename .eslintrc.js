@@ -9,14 +9,18 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
+  parser: 'babel-eslint',
+  rules: {
+    strict: 0,
+  },
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2018,
+    ecmaVersion: 2019,
     sourceType: 'module',
   },
-  plugins: ['react'],
+  plugins: ['react', 'babel'],
   rules: {
     'react/prop-types': 'off',
   },
