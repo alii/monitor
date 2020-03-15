@@ -26,7 +26,7 @@ class Main extends React.Component {
     socket.on('log', (type, ...args) => {
       console.log(type, args);
       const clonedLogs = this.state.logs;
-      clonedLogs.push({ type, arguments: [...args], date: new Date().toTimeString() });
+      clonedLogs.unshift({ type, arguments: [...args], date: new Date().toTimeString() });
 
       this.setState({
         ...this.state,
