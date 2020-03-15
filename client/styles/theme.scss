@@ -10,7 +10,7 @@
 // throughout the application with
 // styled-components
 
-$dark-mode: false; // Change this to `true` to enable dark mode
+$dark-mode: true; // Change this to `true` to enable dark mode
 
 @function bool($value: false) {
   @if $value == false or $value == '' or $value == 'false' or $value == 'false' or $value == 0 {
@@ -39,4 +39,4 @@ $error: #ff7a7a;
 $success: #a4ff7a;
 
 // doN'T EDIT Below here!
-$light: if(lightness($bg) > 40, darken($bg, 5%), lighten($bgm 5%));
+$light: if(lightness($bg) > 40, darken($bg, 5%), lighten($bg, 5%));

@@ -10,7 +10,7 @@ const Config = () => {
       <FormGroup label="Default Timeout">
         <input type="text" />
       </FormGroup>
-      <FormGroup label="Default Timeout">
+      <FormGroup label="Default Webhook">
         <input type="text" />
       </FormGroup>
     </div>
