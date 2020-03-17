@@ -2,6 +2,7 @@ import { scheduleJob } from 'node-schedule';
 import ioLogger from './functions/Logger';
 import Site from './models/Site';
 import EventEmitter from 'events';
+import { BasicSite } from './functions/BasicSite';
 
 const debug = process.env.NODE_ENV === 'development';
 
@@ -31,7 +32,10 @@ class Scheduler extends EventEmitter {
     const now = Date.now();
 
     if (site.lastCache + site.interval <= now || site.lastCache === null) {
-      this.emit('need monitoring', site);
+      this.emit('fetching site', site);
+
+      const Site = new BasicSite(site);
+      await Site.getProducts();
 
       site.lastCache = now;
       await site.save();
