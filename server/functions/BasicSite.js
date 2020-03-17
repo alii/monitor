@@ -42,7 +42,10 @@ export class BasicSite {
     this.site.products = products.filter(async _product => {
       const productPage = await this.get(`${this.site.url}/products/${_product.handle}`);
       const $ = cheerio.load(productPage.data);
-      const product = JSON.parse($('script[data-product-json]').text());
+
+      const script = $('script[data-product-json]');
+      const product = JSON.parse(script.text());
+      console.log(script);
 
       if (this.site.products.find(loadedProduct => loadedProduct.id === product.id)) {
         // TODO: Compare product and if necessary notify and save
