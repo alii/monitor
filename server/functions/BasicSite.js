@@ -46,6 +46,7 @@ export class BasicSite {
 
       if (this.site.products.find(loadedProduct => loadedProduct.id === product.id)) {
         // TODO: Compare product and if necessary notify and save
+
         console.log(product);
       } else {
         // TODO: This product was newly added! Notify and save it
