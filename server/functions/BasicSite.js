@@ -39,13 +39,15 @@ export class BasicSite {
       return product;
     });
 
-    this.site.products = products.filter(async product => {
-      if (this.site.products.find(loadedProduct => loadedProduct.id === product.id)) {
-        const productPage = await this.get(`${this.site.url}/products/${this.product.handle}`);
-        const $ = cheerio.load(productPage.data);
-        const productJSON = JSON.parse($('script[data-product-json]').text());
+    this.site.products = products.filter(async _product => {
+      const productPage = await this.get(`${this.site.url}/products/${_product.handle}`);
+      const $ = cheerio.load(productPage.data);
+      const product = JSON.parse($('script[data-product-json]').text());
 
-        console.log(productJSON);
+      if (this.site.products.find(loadedProduct => loadedProduct.id === product.id)) {
+        // TODO: Compare product and if necessary notify and save
+
+        console.log(product);
       } else {
         // TODO: This product was newly added! Notify and save it
       }
