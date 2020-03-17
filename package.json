@@ -9,7 +9,7 @@
     "build-react": "webpack --mode production",
     "watch-server": "babel-watch server/index.js",
     "build-server": "babel server --out-dir dist",
-    "build": "yarn build-react&&yarn build-server",
+    "build": "rimraf dist/&&yarn build-react&&yarn build-server",
     "start-dev": "yarn webpack-dev-server --host=0.0.0.0&cross-env NODE_ENV=development yarn watch-server",
     "format": "prettier --write \"**/*.{js,ts,scss,html}\""
   },
@@ -49,6 +49,7 @@
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
     "react-toasts": "^3.0.6",
+    "rimraf": "^3.0.2",
     "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0",
     "styled-components": "^5.0.1",
