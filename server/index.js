@@ -38,11 +38,11 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 const scheduler = new Scheduler(io);
-scheduler.on('need monitoring', site => {
-  log.info(`${site.name}`, 'Sending to clients');
+scheduler.on('fetching site', site => {
+  log.info(`${site.name}`, 'Fetching site');
 
   io.sockets.emit('message', {
-    message: `Checking for restocks on ${site.name}`,
+    message: `Fetching ${site.name}`,
     type: 'info',
   });
 });

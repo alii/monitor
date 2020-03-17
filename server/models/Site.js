@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
-import { ProductSchema as Product } from './Product';
+// import { ProductSchema as Product } from './Product';
 
 const SiteSchema = new mongoose.Schema({
   name: String,
   url: String,
-  products: [Product],
+  products: [{ variants: [Object], name: String, handle: String, id: Number }],
   keywords: String,
   interval: { type: Number, default: 10000 },
   lastCache: { type: Number, default: null }, // This is Date.getTime()
