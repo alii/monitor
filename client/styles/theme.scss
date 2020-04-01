@@ -10,7 +10,7 @@
 // throughout the application with
 // styled-components
 
-$dark-mode: true; // Change this to `true` to enable dark mode
+$dark-mode: false; // Change this to `true` to enable dark mode
 
 @function bool($value: false) {
   @if $value == false or $value == '' or $value == 'false' or $value == 'false' or $value == 0 {
