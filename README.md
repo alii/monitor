@@ -11,7 +11,7 @@ Before beginning, make sure you have installed [Node.js](http://nodejs.org/), np
 You must also make sure that you have `yarn` <= 1.23 installed, too. Yarn can be obtained by running
 
 ```bash
-npm i -g yarn@1.23.0
+npm i -g yarn@1.22.4
 ```
 
 This command may require `sudo` on a \*nix based machine.
