@@ -5,12 +5,21 @@ import useFetch from 'use-http';
  * Products page
  */
 const Products = () => {
-  const { loading, data: products } = useFetch(
+  const { loading, data: res } = useFetch(
     '/api/getProducts',
     { data: { error: true, message: 'Unknown client error' } },
     [],
   );
-  return <div>{loading ? 'Loading' : JSON.stringify(products, null, 2)}</div>;
+
+  if (loading) return <p>Loading</p>;
+
+  return (
+    <>
+      {res.data.map(product => {
+        return <p key={product.name}>{product.name}</p>;
+      })}
+    </>
+  );
 };
 
 export default Products;

@@ -1,5 +1,4 @@
 import Axios from 'axios';
-import cheerio from 'cheerio';
 
 export class BasicSite {
   /**
@@ -46,7 +45,7 @@ export class BasicSite {
         },
       });
 
-      const product = JSON.parse(productPage.data);
+      const product = typeof productPage.data === 'number' ? productPage.data : JSON.parse(productPage.data);
 
       if (this.site.products.find(loadedProduct => loadedProduct.id === product.id)) {
         // TODO: Compare product and if necessary notify and save
