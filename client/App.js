@@ -15,8 +15,8 @@ const socket = openSocket(location.protocol + '//' + location.hostname + ':' + 3
 import { ToastsContainer, ToastsStore } from 'react-toasts';
 
 class Main extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       logs: [],
