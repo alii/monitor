@@ -7,7 +7,7 @@ import Sidebar from './components/Sidebar';
 
 // Theme
 import { ThemeProvider } from 'styled-components';
-import theme from './styles/theme';
+import theme from './styles/Theme';
 
 import openSocket from 'socket.io-client';
 const socket = openSocket(location.protocol + '//' + location.hostname + ':' + 3000);
