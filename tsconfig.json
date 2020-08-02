@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "dist",
+    "rootDir": "src",
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "commonjs",
     "target": "ESNext",
     "jsx": "react",
-    "allowSyntheticDefaultImports": true
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
-  "include": ["src"]
+  "exclude": ["src/client"]
 }
