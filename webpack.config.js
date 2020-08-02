@@ -1,22 +1,22 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
-const htmlPlugin = new HtmlWebPackPlugin({
-  template: './client/index.html',
-  filename: './index.html',
-});
-
 module.exports = {
-  entry: './client/index.js',
+  entry: './src/client/index.tsx',
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
   },
-  plugins: [htmlPlugin],
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: './src/client/index.html',
+      filename: './index.html',
+    }),
+  ],
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -27,21 +27,42 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|jpe?g|gif|svg)$/i,
         loader: 'file-loader',
-        options: { name: '/static/[name].[ext]' },
       },
     ],
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 3001,
+    port: 3000,
     hot: true,
-    open: 'Google Chrome',
+    open: true,
     historyApiFallback: true,
     proxy: {
-      '/api': 'http://localhost:3000',
+      '/': 'http://localhost:2000',
     },
+    stats: {
+      colors: true,
+      chunks: false,
+      hash: true,
+      version: true,
+      timings: true,
+      assets: true,
+      children: false,
+      source: false,
+      warnings: true,
+      noInfo: true,
+      contentBase: './dist',
+      hot: true,
+      modules: false,
+      errors: true,
+      reasons: true,
+      errorDetails: true,
+    },
+  },
+  resolve: {
+    modules: ['src/client', 'node_modules'],
+    extensions: ['.tsx', '.ts', '.js'],
   },
 };
