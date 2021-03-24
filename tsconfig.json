@@ -1,14 +1,12 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "rootDir": "src",
-    "sourceMap": true,
-    "noImplicitAny": true,
     "module": "commonjs",
-    "target": "ESNext",
-    "jsx": "react",
-    "esModuleInterop": true,
-    "skipLibCheck": true
+    "target": "es6",
+    "sourceMap": false,
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true
   },
-  "exclude": ["src/client"]
+  "exclude": ["node_modules"]
 }

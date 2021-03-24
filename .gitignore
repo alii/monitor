@@ -1,8 +1,8 @@
-node_modules/
-dist/
-.idea/
-.npm
-.DS_Store
-yarn-error.log
-.vscode/
 .env
+node_modules
+.idea
+.vscode
+.out
+.next
+build
+dist
