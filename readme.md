@@ -9,6 +9,8 @@
 - NPM & Yarn
 - Docker (unless you want to install services locally)
 
+![Screenshot](./docs/screenshot.png)
+
 ## Installation Instructions
 
 1. Clone the repo
