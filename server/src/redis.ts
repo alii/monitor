@@ -12,6 +12,6 @@ export const DEFAULT_REDIS_EXPIRY = 120;
 
 export async function cacheProducts(store: Store, ...products: GenericProduct[]): Promise<void> {
   for (const product of products) {
-    await redis.hset(`store:${store}`, product.id, JSON.stringify(product));
+    await redis.sadd(`store:${store}`, JSON.stringify(product));
   }
 }

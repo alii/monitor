@@ -19,13 +19,12 @@ export class Products {
   @Get(":store")
   async products(req: Request, res: Response): Promise<void> {
     const store = storeSchema.parse(req.params.store);
-    const entries = Object.entries(await redis.hgetall(store));
+    const products = await redis.smembers(`store:${store}`);
 
-    const products = entries.map((entry) => {
-      const [key, json] = entry;
-      return [key, JSON.parse(json)] as const;
-    });
-
-    res.json(Object.fromEntries(products));
+    res.json(
+      products.map((p) => {
+        return JSON.parse(p);
+      })
+    );
   }
 }
