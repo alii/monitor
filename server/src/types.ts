@@ -1,11 +1,13 @@
 export enum Store {
-  Amazon,
+  EXAMPLE = "example",
 }
+
+export const ONE_SIZE = "o/s";
 
 export interface Variant {
   id: string;
   name: string;
-  size: string | "o/s";
+  size: string;
   price: number | string;
 }
 
@@ -14,3 +16,11 @@ export interface GenericProduct {
   name: string;
   variants: Partial<Variant>[];
 }
+
+export type FetchAllProducts = () => Promise<GenericProduct[]>;
+
+export type StoreConfig = {
+  fetchAllProducts: FetchAllProducts;
+  interval: number;
+  calculateDiff(oldProducts: GenericProduct[], newProducts: GenericProduct[]): Promise<GenericProduct[]>;
+};

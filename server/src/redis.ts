@@ -1,17 +1,17 @@
 import IORedis from "ioredis";
 import { GenericProduct, Store } from "./types";
 
-export const redis = new IORedis(process.env.REDIS_URI);
+export const redis = new IORedis(process.env.REDIS_URI, {
+  lazyConnect: true,
+});
 
-export function _store<T>(key: string, data: T, expiry = -1): Promise<"OK"> {
-  return redis.set(key, JSON.stringify(data), "ex", expiry);
-}
+/**
+ * Default Redis expiry in seconds
+ */
+export const DEFAULT_REDIS_EXPIRY = 120;
 
-export async function cacheProducts(
-  store: Store,
-  ...products: GenericProduct[]
-): Promise<void> {
+export async function cacheProducts(store: Store, ...products: GenericProduct[]): Promise<void> {
   for (const product of products) {
-    await _store(`${store}:${product.id}`, product);
+    await redis.hset(`store:${store}`, product.id, JSON.stringify(product));
   }
 }

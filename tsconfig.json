@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es6",
+    "target": "ES2019",
     "sourceMap": false,
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "strict": true
   },
   "exclude": ["node_modules"]
 }
