@@ -8,7 +8,8 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "strict": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "skipLibCheck": true
   },
   "exclude": ["node_modules"]
 }
