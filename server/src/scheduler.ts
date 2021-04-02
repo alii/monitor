@@ -1,8 +1,7 @@
 import { Job, scheduleJob } from "node-schedule";
 import EventEmitter from "events";
 import { Stores } from "./stores";
-import { cacheProducts, redis } from "./redis";
-import { GenericProduct, Store } from "./types";
+import { redis } from "./redis";
 import { IS_DEV } from "./constants";
 
 const stores = Object.entries(Stores);
@@ -34,13 +33,18 @@ export class Scheduler extends EventEmitter {
         this.emit("message", `Fetching all products for ${store}`);
 
         const products = await storeConfig.fetchAllProducts();
-        const oldProducts = await redis.smembers(`store:${store}`).then((ps) => {
-          return ps.map((p) => JSON.parse(p)) as GenericProduct[];
-        });
+        const oldProducts = await redis.smembers(`store:${store}`);
 
-        await cacheProducts(store as Store, ...oldProducts, ...products);
+        const merged = [...oldProducts, ...products.map((p) => JSON.stringify(p))];
 
-        const diff = await storeConfig.calculateDiff(oldProducts, products);
+        if (merged.length > 0) {
+          await redis.sadd(`store:${store}`, ...merged);
+        }
+
+        const diff = await storeConfig.calculateDiff(
+          oldProducts.map((p) => JSON.parse(p)),
+          products
+        );
 
         for (const product of diff) {
           this.emit("restock", store, product);
