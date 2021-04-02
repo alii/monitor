@@ -19,6 +19,7 @@
     "typescript": "^4.2.3"
   },
   "scripts": {
-    "dev:http": "yarn workspace @monitor/http dev"
+    "dev:http": "yarn workspace @monitor/http dev",
+    "dev": "yarn dev:http"
   }
 }
