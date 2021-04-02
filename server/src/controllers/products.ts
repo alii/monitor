@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import { redis } from "../redis";
 
 import * as z from "zod";
-import { Store } from "../types";
+import { Store } from "../../../shared/types";
 
 const stores = Object.values(Store) as string[];
 

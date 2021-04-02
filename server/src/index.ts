@@ -4,12 +4,16 @@ import { Server } from "@overnightjs/core";
 import { Products } from "./controllers/products";
 import { Scheduler } from "./scheduler";
 import { timestamp, title } from "./utils";
-import { GenericProduct, Store } from "./types";
+import { GenericProduct, Store } from "../../shared/types";
 import { redis } from "./redis";
+import { Root } from "./controllers/root";
+import cors from "cors";
 
 const server = new Server();
 
-server.addControllers([new Products()]);
+server.app.use(cors());
+
+server.addControllers([new Products(), new Root()]);
 
 const scheduler = new Scheduler();
 

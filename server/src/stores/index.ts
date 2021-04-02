@@ -1,4 +1,4 @@
-import { Store, StoreConfig } from "../types";
+import { Store, StoreConfig } from "../../../shared/types";
 
 export const Stores: Record<Store, StoreConfig> = {
   [Store.EXAMPLE]: {
