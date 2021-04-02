@@ -1,0 +1,39 @@
+name: "Build & Lint"
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    name: "Lint"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Begin CI...
+        uses: actions/checkout@v2
+
+      - name: Use Node 15
+        uses: actions/setup-node@v1
+        with:
+          node-version: 15.x
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Use cached node_modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: nodeModules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            nodeModules-
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        env:
+          CI: true
+
+      - name: Lint
+        run: yarn lint
+        env:
+          CI: true
+
+      - name: Type Check
+        run: yarn tsc --noEmit

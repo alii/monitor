@@ -20,6 +20,7 @@
   },
   "scripts": {
     "dev:http": "yarn workspace @monitor/http dev",
-    "dev": "yarn dev:http"
+    "dev": "yarn dev:http",
+    "lint": "eslint ."
   }
 }
