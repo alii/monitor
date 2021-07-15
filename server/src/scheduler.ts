@@ -3,6 +3,7 @@ import EventEmitter from 'events';
 import {Stores} from './stores';
 import {redis} from './redis';
 import {IS_DEV} from './constants';
+import {GenericProduct} from '../../shared/types';
 
 const stores = Object.entries(Stores);
 
@@ -25,11 +26,13 @@ export class Scheduler extends EventEmitter {
 		const now = Date.now();
 
 		stores.forEach(async ([store, storeConfig]) => {
-			if (!storeConfig) return;
+			if (!storeConfig) {
+				return;
+			}
 
 			const lastCache = await redis.get(`last:cache:${store}`);
 
-			if (lastCache === null || parseInt(lastCache) + storeConfig.interval <= now) {
+			if (lastCache === null || parseInt(lastCache, 10) + storeConfig.interval <= now) {
 				this.emit('message', `Fetching all products for ${store}`);
 
 				const products = await storeConfig.fetchAllProducts();
@@ -42,8 +45,8 @@ export class Scheduler extends EventEmitter {
 				}
 
 				const diff = await storeConfig.calculateDiff(
-					oldProducts.map(p => JSON.parse(p)),
-					products
+					oldProducts.map(p => JSON.parse(p) as GenericProduct),
+					products,
 				);
 
 				for (const product of diff) {

@@ -6,6 +6,4 @@ export const timestamp = () => {
 	return c.bold(c.gray(now));
 };
 
-export const title = (word: string) => {
-	return c.blue(`[${word.toUpperCase()}]`);
-};
+export const title = (word: string) => c.blue(`[${word.toUpperCase()}]`);

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Store as EStore} from '../../../shared/types';
 import {useProducts, useStores} from '../hooks';
 
 export default function Home() {
@@ -14,7 +15,7 @@ export default function Home() {
 	);
 }
 
-function Store({store}: {store: string}) {
+function Store({store}: {store: EStore}) {
 	const {data: products} = useProducts(store);
 
 	return (

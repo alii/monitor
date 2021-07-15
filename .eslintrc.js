@@ -18,6 +18,7 @@ module.exports = {
 		'@typescript-eslint/triple-slash-reference': 0,
 		'react/function-component-definition': 0,
 		'react/jsx-tag-spacing': 0,
+		'new-cap': 0,
 	},
 	ignorePatterns: ['**/*.js'],
 };

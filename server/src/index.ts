@@ -25,7 +25,7 @@ scheduler.on('restock', (store: Store, product: GenericProduct) => {
 	console.log(`${timestamp()} ${title('scheduler/restock')} (${title(store)}) ${product.name}`);
 });
 
-redis.connect().then(async () => {
+void redis.connect().then(async () => {
 	console.log(`${timestamp()} ${title('redis')}: connected`);
 
 	server.app.listen(8080, () => {

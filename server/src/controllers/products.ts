@@ -3,7 +3,7 @@ import {Request, Response} from 'express';
 import {redis} from '../redis';
 
 import * as z from 'zod';
-import {Store} from '../../../shared/types';
+import {GenericProduct, Store} from '../../../shared/types';
 
 const stores = Object.values(Store) as string[];
 
@@ -21,10 +21,6 @@ export class Products {
 		const store = storeSchema.parse(req.params.store);
 		const products = await redis.smembers(`store:${store}`);
 
-		res.json(
-			products.map(p => {
-				return JSON.parse(p);
-			})
-		);
+		res.json(products.map(p => JSON.parse(p) as GenericProduct));
 	}
 }

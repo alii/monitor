@@ -24,6 +24,6 @@ export type StoreConfig = {
 	interval: number;
 	calculateDiff(
 		oldProducts: GenericProduct[],
-		newProducts: GenericProduct[]
+		newProducts: GenericProduct[],
 	): Promise<GenericProduct[]>;
 };

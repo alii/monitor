@@ -1,10 +1,10 @@
 import useSWR from 'swr';
-import {GenericProduct} from '../../shared/types';
+import {GenericProduct, Store} from '../../shared/types';
 
 export function useStores() {
-	return useSWR<string[]>('/stores');
+	return useSWR<Store[]>('/stores');
 }
 
-export function useProducts(store: string) {
+export function useProducts(store: Store) {
 	return useSWR<GenericProduct[]>(`/products/${store}`);
 }
