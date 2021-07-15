@@ -16,6 +16,7 @@
 		"@typescript-eslint/parser": "^4.28.3",
 		"concurrently": "^6.0.0",
 		"eslint": "^7.30.0",
+		"eslint-config-next": "^11.0.1",
 		"eslint-config-xo": "^0.37.0",
 		"eslint-config-xo-react": "^0.25.0",
 		"eslint-config-xo-typescript": "^0.43.0",

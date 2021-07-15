@@ -7,9 +7,9 @@ export default function Home() {
 	return (
 		<div className="max-w-5xl mx-auto">
 			<h1 className="text-3xl font-bold">Stores</h1>
-			{stores?.map(store => {
-				return <Store store={store} key={store} />;
-			})}
+			{stores?.map(store => (
+				<Store key={store} store={store} />
+			))}
 		</div>
 	);
 }
@@ -20,9 +20,9 @@ function Store({store}: {store: string}) {
 	return (
 		<div>
 			<h2>{store}</h2>
-			{products?.map(product => {
-				return <div key={product.id}>{product.name}</div>;
-			})}
+			{products?.map(product => (
+				<div key={product.id}>{product.name}</div>
+			))}
 		</div>
 	);
 }

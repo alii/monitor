@@ -11,7 +11,7 @@ services:
       context: .
       dockerfile: server.Dockerfile
     environment:
-      REDIS_URL: redis://redis
+      REDIS_URI: redis://redis
     ports:
       - 8080:8080
 
