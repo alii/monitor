@@ -1,29 +1,33 @@
 {
-  "name": "monitor",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/alii/monitor",
-  "author": "Alistair Smith <alistairsmith01@gmail.com>",
-  "license": "MIT",
-  "private": true,
-  "workspaces": [
-    "server",
-    "client",
-    "shared"
-  ],
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.19.0",
-    "@typescript-eslint/parser": "^4.19.0",
-    "concurrently": "^6.0.0",
-    "eslint": "^7.22.0",
-    "eslint-plugin-react": "^7.23.1",
-    "prettier": "^2.2.1",
-    "typescript": "^4.2.3"
-  },
-  "scripts": {
-    "dev:http": "yarn workspace @monitor/http dev",
-    "dev:client": "yarn workspace @monitor/client dev",
-    "dev": "concurrently \"yarn dev:http\" \"yarn dev:client\"",
-    "lint": "eslint ."
-  }
+	"name": "monitor",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "https://github.com/alii/monitor",
+	"author": "Alistair Smith <alistairsmith01@gmail.com>",
+	"license": "MIT",
+	"private": true,
+	"workspaces": [
+		"server",
+		"client",
+		"shared"
+	],
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^4.28.3",
+		"@typescript-eslint/parser": "^4.28.3",
+		"concurrently": "^6.0.0",
+		"eslint": "^7.30.0",
+		"eslint-config-xo": "^0.37.0",
+		"eslint-config-xo-react": "^0.25.0",
+		"eslint-config-xo-typescript": "^0.43.0",
+		"eslint-plugin-react": "^7.24.0",
+		"eslint-plugin-react-hooks": "^4.2.0",
+		"prettier": "^2.2.1",
+		"typescript": "^4.2.3"
+	},
+	"scripts": {
+		"dev:http": "yarn workspace @monitor/http dev",
+		"dev:client": "yarn workspace @monitor/client dev",
+		"dev": "concurrently \"yarn dev:http\" \"yarn dev:client\"",
+		"lint": "eslint ."
+	}
 }

@@ -1,30 +1,30 @@
-import { Controller, Get } from "@overnightjs/core";
-import { Request, Response } from "express";
-import { redis } from "../redis";
+import {Controller, Get} from '@overnightjs/core';
+import {Request, Response} from 'express';
+import {redis} from '../redis';
 
-import * as z from "zod";
-import { Store } from "../../../shared/types";
+import * as z from 'zod';
+import {Store} from '../../../shared/types';
 
 const stores = Object.values(Store) as string[];
 
-const storeSchema = z.string().refine((s) => stores.includes(s));
+const storeSchema = z.string().refine(s => stores.includes(s));
 
-@Controller("products")
+@Controller('products')
 export class Products {
-  /**
-   * Get a list of products from a single store
-   * @param req Request
-   * @param res Response
-   */
-  @Get(":store")
-  async products(req: Request, res: Response): Promise<void> {
-    const store = storeSchema.parse(req.params.store);
-    const products = await redis.smembers(`store:${store}`);
+	/**
+	 * Get a list of products from a single store
+	 * @param req Request
+	 * @param res Response
+	 */
+	@Get(':store')
+	async products(req: Request, res: Response): Promise<void> {
+		const store = storeSchema.parse(req.params.store);
+		const products = await redis.smembers(`store:${store}`);
 
-    res.json(
-      products.map((p) => {
-        return JSON.parse(p);
-      })
-    );
-  }
+		res.json(
+			products.map(p => {
+				return JSON.parse(p);
+			})
+		);
+	}
 }

@@ -1,7 +1,7 @@
-import IORedis from "ioredis";
+import IORedis from 'ioredis';
 
 export const redis = new IORedis(process.env.REDIS_URI, {
-  lazyConnect: true,
+	lazyConnect: true,
 });
 
 /**

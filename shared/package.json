@@ -1,6 +1,6 @@
 {
-  "name": "@monitor/shared",
-  "version": "1.0.0",
-  "author": "Alistair Smith",
-  "license": "MIT"
+	"name": "@monitor/shared",
+	"version": "1.0.0",
+	"author": "Alistair Smith",
+	"license": "MIT"
 }

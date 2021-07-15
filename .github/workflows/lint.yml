@@ -1,10 +1,10 @@
-name: "Build & Lint"
+name: 'Build & Lint'
 
 on: [push, pull_request]
 
 jobs:
   lint:
-    name: "Lint"
+    name: 'Lint'
     runs-on: ubuntu-latest
 
     steps:
@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 15.x
-          registry-url: "https://registry.npmjs.org"
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Use cached node_modules
         uses: actions/cache@v2
