@@ -5,3 +5,19 @@ services:
     image: redis
     ports:
       - 6379:6379
+
+  server:
+    build:
+      context: .
+      dockerfile: server.Dockerfile
+    environment:
+      REDIS_URL: redis://redis
+    ports:
+      - 8080:8080
+
+  client:
+    build:
+      context: .
+      dockerfile: client.Dockerfile
+    ports:
+      - 3000:3000

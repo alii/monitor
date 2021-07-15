@@ -14,7 +14,7 @@ export interface Variant {
 export interface GenericProduct {
 	id: string;
 	name: string;
-	variants: Partial<Variant>[];
+	variants: Array<Partial<Variant>>;
 }
 
 export type FetchAllProducts = () => Promise<GenericProduct[]>;
